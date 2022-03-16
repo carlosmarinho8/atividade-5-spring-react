@@ -4,7 +4,7 @@ CREATE DATABASE agencydb;
 USE agencydb;
 # Criando a tabela de clientes
 CREATE TABLE clients(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+id bigint PRIMARY KEY AUTO_INCREMENT NOT NULL,
 name varchar(255),
 age int,
 gender varchar(255),
@@ -29,3 +29,47 @@ END$$
 DELIMITER ;
 # Chamando a procudure
 CALL GetCLients();
+
+# Atualizando o telephone do cliente João
+UPDATE clients
+SET phone = 88889999
+WHERE id = 1;
+SELECT * FROM clients;
+
+# Deletando a cliente Maria pois não está ativa
+DELETE FROM clients
+WHERE id = 2;
+SELECT * FROM clients;
+
+# Criando tabela de viagens
+CREATE TABLE trips(
+id bigint PRIMARY KEY AUTO_INCREMENT NOT NULL,
+fk int,
+FOREIGN KEY(FK) REFERENCES  clients(id),
+destiny varchar(255),
+destination_date date,
+destination_time time
+)
+
+# Inserindo valores na tabela de viagens
+INSERT INTO trips (fk, destiny, destination_date, destination_time) values (1, 'new york', '2022-03-20', '18:00:00');
+
+# Selecionando toda tabela viagens atraves de uma stored procedure
+DELIMITER $$
+CREATE PROCEDURE GetTrips()
+BEGIN
+	SELECT id, fk, destiny, destination_date, destination_time
+	FROM trips
+    ORDER BY id;
+END$$
+DELIMITER ;
+
+# Chamando a procedure
+CALL getTrips();
+
+# Fazendo um inner join usando a chave estrangeira
+SELECT name, age, gender, phone, email, cpf, published, destiny, destination_date, destination_time
+FROM clients
+INNER JOIN trips
+ON clients.id = trips.fk
+ORDER BY name;
