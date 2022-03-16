@@ -1,9 +1,3 @@
-
-/*  é um RestController que possui métodos de mapeamento de requisições para requisições RESTful como: getAllClients, createClient, updateClient, deleteClient, findByPublished…
-– Configuração para Spring Datasource, JPA & Hibernate em application.properties.
-– pom.xml contém dependências para Spring Boot e MySQL
-*/
-
 package com.carlosmarinho8.agency_without_borders.controller;
 
 import java.util.ArrayList;
@@ -27,12 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.carlosmarinho8.agency_without_borders.model.*;
 import com.carlosmarinho8.agency_without_borders.repository.ClientRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")  // é para configurar origens permitidas.
-@RestController  /* A anotação é usada para definir um controlador e indicar que o valor de retorno dos métodos
- deve ser vinculado ao corpo da resposta da web. */
-@RequestMapping("/api")  // declara que todas as URLs de Apis no controlador começarão com /api.
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
+@RequestMapping("/api")
 public class ClientController {
-	@Autowired  // Usamos @Autowired para injetar o bean ClientRepository na variável local.
+	@Autowired
 	ClientRepository clientRepository;
 
 	@GetMapping("/clients")

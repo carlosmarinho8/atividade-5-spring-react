@@ -1,5 +1,3 @@
-
-// classe de modelo de dados corresponde à entidade e tabela clients.
 package com.carlosmarinho8.agency_without_borders.model;
 
 import javax.persistence.Column;
@@ -8,15 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity  // A anotação indica que a classe é uma classe Java persistente.
-@Table(name = "clients")  // anotação fornece a tabela que mapeia essa entidade.
+@Entity
+@Table(name = "clients")
 public class Client {
-	@Id  // anotação é para a chave primária.
-	@GeneratedValue(strategy = GenerationType.AUTO)  /* anotação é usada para definir a estratégia de geração
-	para a chave primária e significa campo de Incremento Automático.
-	*/
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Column(name = "name")  // anotação é usada para definir a coluna no banco de dados que mapeia o campo anotado.
+	@Column(name = "name")
 	private String name;
 	@Column(name = "age")
 	private Integer age;
