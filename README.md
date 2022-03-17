@@ -58,7 +58,7 @@ the terminal will open the project on port 8081</p>
 <br>
 <br>
 ## Annotations
-<p>
+<pre>
 – @Entity annotation indicates that the class is a persistent Java class.
 – @Table annotation provides the table that maps this entity.
 – @Id annotation is for the primary key.
@@ -80,4 +80,4 @@ the terminal will open the project on port 8081</p>
 – Client component has form for editing Client’s details based on :id.
 – AddClient component has form for submission new Client.
 These Components call ClientDataService methods which use axios to make HTTP requests and receive responses.
-</p>
+</pre>
