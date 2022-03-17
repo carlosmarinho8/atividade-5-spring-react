@@ -7,3 +7,5 @@
 - Browser
 
 ## Tutorial
+
+![Properties](./pictures/properties.png)
