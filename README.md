@@ -8,4 +8,4 @@
 
 ## Tutorial
 
-![Properties](./pictures/properties.png)
+<img src="pictures/properties.png">
